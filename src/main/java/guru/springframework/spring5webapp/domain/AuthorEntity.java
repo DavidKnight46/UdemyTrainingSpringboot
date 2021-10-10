@@ -1,6 +1,7 @@
 package guru.springframework.spring5webapp.domain;
 
 
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -10,6 +11,7 @@ import java.util.Set;
 @Entity
 @Table(name = "")
 @NoArgsConstructor
+@Data
 public class AuthorEntity {
 
     @Id

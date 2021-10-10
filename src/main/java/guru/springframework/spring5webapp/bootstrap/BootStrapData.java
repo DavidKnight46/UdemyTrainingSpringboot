@@ -25,27 +25,32 @@ public class BootStrapData implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        PublisherEntity publisherEntity = new PublisherEntity("Publisher", new AddressPublisher("14 Road", "London", "London", "12311we"));
+        PublisherEntity publisherEntityOne = new PublisherEntity("Publisher1", new AddressPublisher("14 Road", "London", "London", "12311we"));
+
+
         AuthorEntity eric = new AuthorEntity("Eric", "Evans");
         BookEntity ddd = new BookEntity("Domain Driven Design", "123123");
 
         eric.books.add(ddd);
         ddd.getAuthors().add(eric);
+        ddd.setPublisherEntity(publisherEntity);
 
         authorRepository.save(eric);
         bookRepository.save(ddd);
 
+        //
         AuthorEntity rod = new AuthorEntity("Rod", "Johnson");
         BookEntity notEJB = new BookEntity("J2EE", "234567456456465");
 
         rod.books.add(notEJB);
-        ddd.getAuthors().add(rod);
+        notEJB.getAuthors().add(rod);
+        notEJB.setPublisherEntity(publisherEntityOne);
 
         authorRepository.save(rod);
         bookRepository.save(notEJB);
 
         System.out.println(bookRepository.count());
-
-        PublisherEntity publisherEntity = new PublisherEntity("Publisher", new AddressPublisher("14 Road", "London", "London", "12311we"));
 
         publisherRepository.save(publisherEntity);
 

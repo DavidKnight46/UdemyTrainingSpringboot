@@ -1,5 +1,6 @@
 package guru.springframework.spring5webapp.domain;
 
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -7,6 +8,7 @@ import javax.persistence.*;
 @Entity
 @Table
 @NoArgsConstructor
+@Data
 public class PublisherEntity {
 
     public PublisherEntity(String name, AddressPublisher address) {
